@@ -26,7 +26,7 @@ public class UltraschallSensor {
 	public double getDistance() {
 		this.sampleProvider.fetchSample(sample, 0);
 		
-		return this.sample[0];
+		return this.sample[0] * 100;
 	}
 	
 	public boolean seesWall() {
@@ -46,7 +46,7 @@ public class UltraschallSensor {
 		do {
 			this.sampleProvider.fetchSample(sample, 0);
 			Thread.yield();
-		} while (this.sample[0] > distance);
+		} while (this.sample[0] * 100 > distance);
 	}
 
 	public void waitForNoWall() {
@@ -60,6 +60,6 @@ public class UltraschallSensor {
 		do {
 			this.sampleProvider.fetchSample(sample, 0);
 			Thread.yield();
-		} while (this.sample[0] <= distance);
+		} while (this.sample[0] * 100 <= distance);
 	}
 }
