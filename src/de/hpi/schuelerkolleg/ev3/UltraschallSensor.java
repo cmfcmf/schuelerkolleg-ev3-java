@@ -10,6 +10,9 @@ import lejos.robotics.SampleProvider;
 public class UltraschallSensor {
 	private SampleProvider sampleProvider;
 	
+	/**
+	 * Distance in meters
+	 */
 	private float[] sample;
 	
 	public UltraschallSensor(int portNumber) {
