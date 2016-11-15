@@ -41,9 +41,9 @@ public class FarbSensor {
 		return this.lightSample[0];
 	}
 	
-	public float getColor() {
+	public int getColor() {
 		this.color.fetchSample(colorSample, 0);
 		
-		return this.colorSample[0];
+		return (int)(this.colorSample[0]);
 	}
 }
