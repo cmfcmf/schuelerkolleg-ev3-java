@@ -3,10 +3,11 @@ package de.hpi.schuelerkolleg.ev3;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.SampleProvider;
 
 public class FarbSensor {
+	private EV3ColorSensor sensor;
+	
 	private SampleProvider color;
 	private SampleProvider light;
 	private SampleProvider ambient;
@@ -18,11 +19,11 @@ public class FarbSensor {
 	public FarbSensor(int portNumber) {
 		Port port = LocalEV3.get().getPort("S".concat(Integer.toString(portNumber)));
 
-		EV3ColorSensor sensor = new EV3ColorSensor(port);
+		this.sensor = new EV3ColorSensor(port);
 
-		this.color = sensor.getColorIDMode();
-		this.light = sensor.getRedMode();
-		this.ambient = sensor.getAmbientMode();
+		this.color = this.sensor.getColorIDMode();
+		this.light = this.sensor.getRedMode();
+		this.ambient = this.sensor.getAmbientMode();
 
 		this.colorSample = new float[this.color.sampleSize()];
 		this.lightSample = new float[this.light.sampleSize()];
@@ -45,5 +46,9 @@ public class FarbSensor {
 		this.color.fetchSample(colorSample, 0);
 		
 		return (int)(this.colorSample[0]);
+	}
+	
+	public void close() {
+		this.sensor.close();
 	}
 }
