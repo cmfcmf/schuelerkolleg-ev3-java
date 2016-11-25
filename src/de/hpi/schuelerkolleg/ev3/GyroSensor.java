@@ -26,15 +26,15 @@ public class GyroSensor {
 		this.sensor.reset();
 	}
 	
-	public double winkel() {
+	public int winkel() {
 		this.sampleProvider.fetchSample(sample, 0);
 
-		return (double)this.sample[1];
+		return (int)this.sample[1];
 	}
 	
-	public double veraenderung() {
+	public int veraenderung() {
 		this.sampleProvider.fetchSample(sample, 0);
 		
-		return (double)this.sample[0];
+		return (int)this.sample[0];
 	}
 }
