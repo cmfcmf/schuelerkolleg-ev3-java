@@ -2,12 +2,12 @@ package de.hpi.schuelerkolleg.ev3;
 
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.Port;
-import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.hardware.sensor.EV3UltrasonicSensor;
-import lejos.hardware.sensor.SensorModes;
 import lejos.robotics.SampleProvider;
 
 public class UltraschallSensor {
+	private EV3UltrasonicSensor sensor;
+	
 	private SampleProvider sampleProvider;
 	
 	/**
@@ -18,10 +18,10 @@ public class UltraschallSensor {
 	public UltraschallSensor(int portNumber) {
 		Port port = LocalEV3.get().getPort("S".concat(Integer.toString(portNumber)));
 
-		EV3UltrasonicSensor sensor = new EV3UltrasonicSensor(port);
-		sensor.enable();
+		this.sensor = new EV3UltrasonicSensor(port);
+		this.sensor.enable();
 
-		this.sampleProvider = sensor.getDistanceMode();
+		this.sampleProvider = this.sensor.getDistanceMode();
 
 		this.sample = new float[this.sampleProvider.sampleSize()];
 	}
@@ -64,5 +64,9 @@ public class UltraschallSensor {
 			this.sampleProvider.fetchSample(sample, 0);
 			Thread.yield();
 		} while (this.sample[0] * 100 <= distance);
+	}
+	
+	public void close() {
+		this.sensor.close();
 	}
 }

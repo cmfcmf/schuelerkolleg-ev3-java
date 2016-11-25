@@ -6,9 +6,9 @@ import lejos.hardware.sensor.EV3GyroSensor;
 import lejos.robotics.SampleProvider;
 
 public class GyroSensor {
-	private SampleProvider sampleProvider;
-	
 	private EV3GyroSensor sensor;
+	
+	private SampleProvider sampleProvider;
 	
 	private float[] sample;
 	
@@ -36,5 +36,9 @@ public class GyroSensor {
 		this.sampleProvider.fetchSample(sample, 0);
 		
 		return (int)this.sample[0];
+	}
+	
+	public void close() {
+		this.sensor.close();
 	}
 }
