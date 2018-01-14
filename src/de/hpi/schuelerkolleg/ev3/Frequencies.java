@@ -11,58 +11,58 @@ Utility class to provide frequencies in Hz according to given note name.
 public class Frequencies {
     private static Map<String, Float> frequencyMap = new HashMap<String, Float>() {
         {
-        	put("C0", 130.81f);
-        	put("C#0", 138.59f);
-        	put("Db0",138.59f);
-        	put("D0", 146.83f);
-        	put("D#0",155.56f);
-        	put("Eb0",155.56f);
-        	put("E0",164.81f);
-        	put("F0",174.61f);
-        	put("F#0", 185.0f);
-        	put("Gb0",185.0f);
-        	put("G0", 196.0f);
-        	put("G#0", 207.65f);
-        	put("Ab0", 207.65f);
-        	put("A0", 220.0f);
-        	put("A#0", 233.08f);
-        	put("Bb0",233.08f);
-        	put("B0", 246.94f);
-        	put("C1", 261.63f);
-        	put("C#1",277.18f);
-        	put("Db1",277.18f);
-        	put("D1", 293.66f);
-        	put("D#1", 311.13f);
-        	put("Eb1",311.13f);
-        	put("E1",329.63f);
-        	put("F1", 349.23f);
-        	put("F#1",369.99f);
-        	put("Gb1", 369.99f);
-        	put("G1", 392.0f);
-        	put("G#1", 415.3f);
-        	put("Ab1", 415.3f);
-        	put("A1", 440.0f);
-        	put("A#1", 466.16f);
-        	put("Bb1",466.16f);
-        	put("B1",493.88f);
-        	put("C2", 523.25f);
-        	put("C#2",554.37f);
-        	put("Db2", 554.37f);
-        	put("D2", 587.33f);
-        	put("D#2", 622.25f);
-        	put("Eb2", 622.25f);
-        	put("E2", 659.26f);
-        	put("F2", 698.46f);
-        	put("F#2",739.99f);
-        	put("Gb2", 739.99f);
-        	put("G2", 783.99f);
-        	put("G#2",830.61f);
-        	put("Ab2", 830.61f);
-        	put("A2", 880.0f);
-        	put("A#2", 932.33f);
-        	put("Bb2", 932.33f);
-        	put("B2", 987.77f);
-        	put("C3",1046.5f);
+        	put("c0", 130.81f);
+        	put("c#0", 138.59f);
+        	put("db0",138.59f);
+        	put("d0", 146.83f);
+        	put("d#0",155.56f);
+        	put("eb0",155.56f);
+        	put("e0",164.81f);
+        	put("f0",174.61f);
+        	put("f#0", 185.0f);
+        	put("gb0",185.0f);
+        	put("g0", 196.0f);
+        	put("g#0", 207.65f);
+        	put("ab0", 207.65f);
+        	put("a0", 220.0f);
+        	put("a#0", 233.08f);
+        	put("bb0",233.08f);
+        	put("b0", 246.94f);
+        	put("c1", 261.63f);
+        	put("c#1",277.18f);
+        	put("db1",277.18f);
+        	put("d1", 293.66f);
+        	put("d#1", 311.13f);
+        	put("eb1",311.13f);
+        	put("e1",329.63f);
+        	put("f1", 349.23f);
+        	put("f#1",369.99f);
+        	put("gb1", 369.99f);
+        	put("g1", 392.0f);
+        	put("g#1", 415.3f);
+        	put("ab1", 415.3f);
+        	put("a1", 440.0f);
+        	put("a#1", 466.16f);
+        	put("bb1",466.16f);
+        	put("b1",493.88f);
+        	put("c2", 523.25f);
+        	put("c#2",554.37f);
+        	put("db2", 554.37f);
+        	put("d2", 587.33f);
+        	put("d#2", 622.25f);
+        	put("eb2", 622.25f);
+        	put("e2", 659.26f);
+        	put("f2", 698.46f);
+        	put("f#2",739.99f);
+        	put("gb2", 739.99f);
+        	put("g2", 783.99f);
+        	put("g#2",830.61f);
+        	put("ab2", 830.61f);
+        	put("a2", 880.0f);
+        	put("a#2", 932.33f);
+        	put("bb2", 932.33f);
+        	put("b2", 987.77f);
+        	put("c3",1046.5f);
         }
     };
 
@@ -70,6 +70,6 @@ public class Frequencies {
     Use this method to retrieve the frequency according to a musical note as C0 or D#1.
      */
     public static int get(String note) {
-        return (int) Math.round(Frequencies.frequencyMap.get(note.toUpperCase(Locale.ROOT)));
+        return (int) Math.round(Frequencies.frequencyMap.get(note));
     }
 }
