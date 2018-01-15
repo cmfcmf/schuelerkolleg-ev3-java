@@ -57,7 +57,7 @@ public class UltraschallSensor {
 	}
 
 	public void waitForWall(int distance) {
-		this.waitForWall(distance);
+		this.waitForWall((float)distance);
 	}
 
 	public void waitForNoWall() {
@@ -75,7 +75,7 @@ public class UltraschallSensor {
 	}
 
 	public void waitForNoWall(int distance) {
-		this.waitForNoWall(distance);
+		this.waitForNoWall((float)distance);
 	}
 	
 	public void close() {
