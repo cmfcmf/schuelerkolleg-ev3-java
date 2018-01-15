@@ -26,10 +26,14 @@ public class UltraschallSensor {
 		this.sample = new float[this.sampleProvider.sampleSize()];
 	}
 	
-	public double getDistance() {
+	public float getDistanceAsFloat() {
 		this.sampleProvider.fetchSample(sample, 0);
 		
 		return this.sample[0] * 100;
+	}
+	
+	public int getDistance() {
+		return Math.round(this.getDistanceAsFloat());
 	}
 	
 	public boolean seesWall() {
@@ -45,11 +49,15 @@ public class UltraschallSensor {
 		} while (Float.isInfinite(this.sample[0]));
 	}
 
-	public void waitForWall(double distance) {
+	public void waitForWall(float distance) {
 		do {
 			this.sampleProvider.fetchSample(sample, 0);
 			Thread.yield();
 		} while (this.sample[0] * 100 > distance);
+	}
+
+	public void waitForWall(int distance) {
+		this.waitForWall(distance);
 	}
 
 	public void waitForNoWall() {
@@ -59,11 +67,15 @@ public class UltraschallSensor {
 		} while (Float.isFinite(this.sample[0]));
 	}
 
-	public void waitForNoWall(double distance) {
+	public void waitForNoWall(float distance) {
 		do {
 			this.sampleProvider.fetchSample(sample, 0);
 			Thread.yield();
 		} while (this.sample[0] * 100 <= distance);
+	}
+
+	public void waitForNoWall(int distance) {
+		this.waitForNoWall(distance);
 	}
 	
 	public void close() {

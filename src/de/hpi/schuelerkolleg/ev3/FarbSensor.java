@@ -3,6 +3,7 @@ package de.hpi.schuelerkolleg.ev3;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.Port;
 import lejos.hardware.sensor.EV3ColorSensor;
+import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
 
 public class FarbSensor {
@@ -46,6 +47,10 @@ public class FarbSensor {
 		this.color.fetchSample(colorSample, 0);
 		
 		return (int)(this.colorSample[0]);
+	}
+	
+	public boolean isColor(int color) {
+		return this.getColor() == color;
 	}
 	
 	public void close() {

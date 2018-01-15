@@ -29,13 +29,13 @@ public class GyroSensor {
 	public int winkel() {
 		this.sampleProvider.fetchSample(sample, 0);
 
-		return (int)this.sample[1];
+		return Math.round(this.sample[1]);
 	}
 	
 	public int veraenderung() {
 		this.sampleProvider.fetchSample(sample, 0);
 		
-		return (int)this.sample[0];
+		return Math.round(this.sample[0]);
 	}
 	
 	public void close() {

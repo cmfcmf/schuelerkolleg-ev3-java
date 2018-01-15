@@ -10,7 +10,7 @@ import lejos.robotics.navigation.MovePilot;
 public class Pilot {
 
 	public static MovePilot initPilot() {
-		return initPilot(5.2); //fuer Standardwerte (Speed) 5.1 benutzen
+		return initPilot(5.1);
 	}
 	
 	public static MovePilot initPilot(double diameter) {
